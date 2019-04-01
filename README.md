@@ -41,16 +41,31 @@ Your task is to discuss and write out the SQL statements that will run for each 
 
 ```ruby
 voter = Voter.create
+#INSERT INTO voters (name) VALUES ("John");
 
 candidate = Candidate.create
+#INSERT INTO candidates (name) VALUES ("Obama");
+
+
+
+
 
 voter.votes
+#SELECT * FROM voters WHERE id = votes.voter_id;
+
+
 
 voter.candidates
+#SELECT * FROM candidates where id = votes.candidate_id;
+
 
 vote = Vote.create(voter_id: voter.id, candidate_id: candidate.id)
+#INSERT INTO votes (voter_id,candidate_id) VALUES (1,1);
+
+
 
 vote = voter.votes.create(candidate: candidate)
+
 
 vote.voter
 
